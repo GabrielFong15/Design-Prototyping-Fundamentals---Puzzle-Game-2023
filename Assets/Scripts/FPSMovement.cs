@@ -59,8 +59,6 @@ public class FPSMovement : MonoBehaviour
         MovePlayer(move); // Run the MovePlayer function with the vector3 value move
         RunCheck(); // Checks the input for run
         JumpCheck(); // Checks if we can jump
-
-
     }
 
     // MovePlayer
