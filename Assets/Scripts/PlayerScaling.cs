@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerScaling : MonoBehaviour
 {
     public GameObject PlayerPressurePlate;
-    private int playerState = 2;
+    public int playerState = 2;
     public FPSMovement FPSMovement;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class PlayerScaling : MonoBehaviour
         {
             if (playerState == 2)
             {
-                collidedPlayer.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                collidedPlayer.transform.localScale = new Vector3(0.45f, 0.45f, 0.45f);
                 FPSMovement FPSMove = collidedPlayer.GetComponent < FPSMovement>();
                 FPSMove.m_jumpHeight = 0.4f;
                 playerState = 1;

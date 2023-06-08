@@ -7,9 +7,9 @@ using UnityEngine.Playables;
 
 public class ObjectScaling : MonoBehaviour
 {
-    public GameObject ObjectPressurePlate;
+    public Collider ObjectPressurePlate;
     private int objectState = 2;
-    public Collider Collider;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +33,6 @@ public class ObjectScaling : MonoBehaviour
                 rb.mass = 0.5f;
                 rb.drag = 0.8f;
                 objectState = 1;
-                OnTriggerStay(Collider);
             }
             else
             {
@@ -42,25 +41,30 @@ public class ObjectScaling : MonoBehaviour
                 rb.mass = 1f;
                 rb.drag = 1f;
                 objectState = 2;
-
             }
         }
 
-void OnTriggerStay(Collider collider)
+    }
+    private void OnTriggerStay(Collider other)
     {
-        if (collider.gameObject.tag == "PressurePlate")
+        if (other.gameObject.tag == "PressurePlate")
         {
-            BoxCollider boxCollider = collider.GetComponent<BoxCollider>();
-            BoxCollider bc = boxCollider;
-
-            if (bc.isTrigger == true)
-                collider.enabled = !collider.enabled;
+            BoxCollider boxCollider = other.GetComponent<BoxCollider>();
+            if (boxCollider.isTrigger == true)
+                boxCollider.enabled = false;
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "PressurePlate")
+        {
+            BoxCollider boxCollider = other.GetComponent<BoxCollider>();
+            if (boxCollider.isTrigger == false)
+                boxCollider.enabled = true;
+        }
     }
-
-    
-
 }
+
+
 
