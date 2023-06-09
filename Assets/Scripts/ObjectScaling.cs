@@ -7,9 +7,9 @@ using UnityEngine.Playables;
 
 public class ObjectScaling : MonoBehaviour
 {
-    public Collider ObjectPressurePlate;
-    private int objectState = 2;
-   
+    public Collider blockPressurePlate;
+    [HideInInspector] public int blockState = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,17 +22,21 @@ public class ObjectScaling : MonoBehaviour
 
     }
 
+    //When a block lands on a pressure plate, toggle its size
     void OnTriggerEnter(Collider collidedObject)
     {
         if (collidedObject.gameObject.tag == "Object")
         {
-            if (objectState == 2)
+
+            if (blockState == 2)
             {
                 collidedObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 Rigidbody rb = collidedObject.GetComponent<Rigidbody>();
                 rb.mass = 0.5f;
                 rb.drag = 0.8f;
-                objectState = 1;
+                blockState = 1;
+                
+
             }
             else
             {
@@ -40,30 +44,15 @@ public class ObjectScaling : MonoBehaviour
                 Rigidbody rb = collidedObject.GetComponent<Rigidbody>();
                 rb.mass = 1f;
                 rb.drag = 1f;
-                objectState = 2;
+                blockState = 2;
+
             }
         }
-
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "PressurePlate")
-        {
-            BoxCollider boxCollider = other.GetComponent<BoxCollider>();
-            if (boxCollider.isTrigger == true)
-                boxCollider.enabled = false;
-        }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "PressurePlate")
-        {
-            BoxCollider boxCollider = other.GetComponent<BoxCollider>();
-            if (boxCollider.isTrigger == false)
-                boxCollider.enabled = true;
-        }
-    }
+
+
+
 }
 
 
