@@ -37,7 +37,7 @@ public class PickupScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (CurrentObject)
+        if (CurrentObject == true)
         {
             Vector3 DirectionToPoint = pickupTarget.position - CurrentObject.position;
             float DistanceToPoint = DirectionToPoint.magnitude;

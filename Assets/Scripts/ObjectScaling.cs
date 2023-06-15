@@ -33,8 +33,8 @@ public class ObjectScaling : MonoBehaviour
             {
                 collidedObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 Rigidbody rb = collidedObject.GetComponent<Rigidbody>();
-                rb.mass = 0.5f;
-                rb.drag = 0.8f;
+                rb.mass = 5f;
+                rb.drag = 1f;
                 blockState = 1;
                 
 
@@ -43,8 +43,8 @@ public class ObjectScaling : MonoBehaviour
             {
                 collidedObject.transform.localScale = new Vector3(1f, 1f, 1f);
                 Rigidbody rb = collidedObject.GetComponent<Rigidbody>();
-                rb.mass = 10f;
-                rb.drag =5f;
+                rb.mass = 30f;
+                rb.drag =1f;
                 blockState = 2;
 
             }

@@ -9,52 +9,44 @@ public class HandScanner : MonoBehaviour
     public bool isSmallScanner;
     public PlayerScaling playerScaling;
     public GameObject Gate;
-    private bool gateState;
-    private bool allowInteract;
+    public int playerState;
 
     // Start is called before the first frame update
     void Start()
     {
-        gateState = false; //closed
-        allowInteract = false;
+
     }
 
     // Update is called once per frame
 
     void Update()
     {
-       PlayerScaling PlayerState = GetComponent<PlayerScaling>();
-        if (PlayerState.playerState == 2 && isNormalScanner == true || PlayerState.playerState == 2 && isSmallScanner == true) 
+        playerState = playerScaling.playerState;
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            allowInteract = true;
-        }
-        else
-        {
-            allowInteract = false;
+            Gate.SetActive(false);
         }
 
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (allowInteract == true)
+       BoxCollider bc = other.GetComponent<BoxCollider>();
+       if(other.gameObject.tag == "Player")
         {
-            if (other.gameObject.tag == "Player")
+            if (playerScaling.playerState == 2 && isNormalScanner == true)
             {
-                //if its closed, then open
-                if (Input.GetKeyDown(KeyCode.E) && gateState == false)
-                {
-                    Gate.SetActive(false);
-                    gateState = true;
-                }
-                //if its open, then close
-                if (Input.GetKeyDown(KeyCode.E) && gateState == true)
-                {
-                    Gate.SetActive(false);
-                    gateState = false;
-
-                }
+                bc.isTrigger = true;
             }
+            else
+                bc.isTrigger = false;
+
+            if (playerScaling.playerState == 1 && isSmallScanner == true)
+            {
+                bc.isTrigger = true;
+            }
+            else
+                bc.isTrigger = false;
         }
     }
 
