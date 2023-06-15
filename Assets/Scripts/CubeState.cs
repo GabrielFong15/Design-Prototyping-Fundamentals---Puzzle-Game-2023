@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class CubeState : MonoBehaviour
 {
-    public ObjectScaling blockState;
+    [SerializeField] ObjectScaling objectScaling;
 
     [SerializeField]
+    public GameObject cube;   
     public int cubeState;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +22,7 @@ public class CubeState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        blockState = GetComponent<ObjectScaling>();
-        
+        cubeState = objectScaling.blockState;
     }
 
 }

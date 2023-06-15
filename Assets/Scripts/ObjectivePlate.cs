@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class ObjectivePlate : MonoBehaviour
 {
-    public CubeState cubeState;
     public GameObject objectivePressurePlate;
+    public Collider plateCollider;
     public int objectivePlateState;
+    [SerializeField] CubeState CubeState;
+    public bool objectivePlateActive;
 
-    [SerializeField]
-    private int blockState;
     // Start is called before the first frame update
     void Start()
     {
-        
+        objectivePlateActive = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-       
+
+        if (other.gameObject.tag == "Object") 
+        {
+            if (CubeState.cubeState == objectivePlateState)
+            {
+                objectivePlateActive = true;
+            }
+        }
     }
 }

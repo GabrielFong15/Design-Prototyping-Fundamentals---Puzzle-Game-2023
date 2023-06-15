@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PickupScript : MonoBehaviour
 {
-    [SerializeField] private LayerMask PickupMask;
-    [SerializeField] private Camera PlayerCam;
-    [SerializeField] private Transform PickupTarget;
-    [Space]
-    [SerializeField] private float PickupRange;
+    [SerializeField] private LayerMask pickupMask;
+    [SerializeField] private Camera playerCam;
+    [SerializeField] private Transform pickupTarget;
+    [SerializeField] private float pickupRange;
     private Rigidbody CurrentObject;
 
 
@@ -20,15 +19,15 @@ public class PickupScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (CurrentObject)
+            if (CurrentObject == true)
             {
                 CurrentObject.useGravity = true;
                 CurrentObject = null;
                 return;
             }
 
-            Ray CameraRay = PlayerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-            if (Physics.Raycast(CameraRay, out RaycastHit HitInfo, PickupRange, PickupMask))
+            Ray CameraRay = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            if (Physics.Raycast(CameraRay, out RaycastHit HitInfo, pickupRange, pickupMask))
             {
                 CurrentObject = HitInfo.rigidbody;
                 CurrentObject.useGravity = false;
@@ -40,7 +39,7 @@ public class PickupScript : MonoBehaviour
     {
         if (CurrentObject)
         {
-            Vector3 DirectionToPoint = PickupTarget.position - CurrentObject.position;
+            Vector3 DirectionToPoint = pickupTarget.position - CurrentObject.position;
             float DistanceToPoint = DirectionToPoint.magnitude;
 
             CurrentObject.velocity = DirectionToPoint * 12f * DistanceToPoint;

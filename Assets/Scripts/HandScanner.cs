@@ -20,6 +20,7 @@ public class HandScanner : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
        PlayerScaling PlayerState = GetComponent<PlayerScaling>();
@@ -31,6 +32,7 @@ public class HandScanner : MonoBehaviour
         {
             allowInteract = false;
         }
+
     }
 
     private void OnTriggerStay(Collider other)

@@ -7,6 +7,7 @@ using UnityEngine.Playables;
 
 public class ObjectScaling : MonoBehaviour
 {
+
     public Collider blockPressurePlate;
     [HideInInspector] public int blockState = 2;
 
@@ -42,8 +43,8 @@ public class ObjectScaling : MonoBehaviour
             {
                 collidedObject.transform.localScale = new Vector3(1f, 1f, 1f);
                 Rigidbody rb = collidedObject.GetComponent<Rigidbody>();
-                rb.mass = 1f;
-                rb.drag = 1f;
+                rb.mass = 10f;
+                rb.drag =5f;
                 blockState = 2;
 
             }
