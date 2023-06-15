@@ -9,9 +9,10 @@ public class CubeState : MonoBehaviour
 
     [SerializeField]
     public GameObject cube;   
-    public int cubeState;
+    public int cubeState = 2;
+    public Collider blockPressurePlate;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,23 @@ public class CubeState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cubeState = objectScaling.blockState;
+    }
+
+    void OnTriggerEnter(Collider collidedObject)
+    {
+        if (collidedObject.gameObject.tag == "PressurePlate")
+        {
+
+            if (cubeState == 2)
+            {
+                cubeState = 1;
+            }
+            else
+            {
+                cubeState = 2;
+
+            }
+        }
     }
 
 }

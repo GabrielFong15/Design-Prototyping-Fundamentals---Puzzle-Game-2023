@@ -8078,7 +8078,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectScaling: {fileID: 1072557493}
   cube: {fileID: 1060546545}
-  cubeState: 0
+  cubeState: 2
+  blockPressurePlate: {fileID: 1072557494}
 --- !u!1 &1072557492
 GameObject:
   m_ObjectHideFlags: 0
@@ -11570,7 +11571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectivePressurePlate: {fileID: 1560568280}
   plateCollider: {fileID: 1560568282}
-  objectivePlateState: 1
+  objectivePlateState: 2
   CubeState: {fileID: 2118534730}
   objectivePlateActive: 0
 --- !u!1 &1570444919
@@ -15028,7 +15029,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectScaling: {fileID: 1072557493}
   cube: {fileID: 2118534729}
-  cubeState: 0
+  cubeState: 2
+  blockPressurePlate: {fileID: 1072557494}
 --- !u!54 &2118534731
 Rigidbody:
   m_ObjectHideFlags: 0
