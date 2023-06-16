@@ -9,35 +9,37 @@ public class DoorOpen : MonoBehaviour
 {
     public GameObject Door;
     public GameObject[] pressurePlate;
-    private bool[] pressurePlateChecker;
+    public bool[] pressurePlateChecker;
     [SerializeField] ObjectivePlate objectivePlate;
-    public bool doorState;
+    public bool doorStateOn;
+    private int length;
     
-    // Start is called before the first frame update
     void Start()
     {
-        doorState = false;
-        for (int i = 0; i < pressurePlate.Length; i++) {
-            for (int j = 0; j < 1; j++) {
+        doorStateOn = false;
+        length = pressurePlate.Length;
+
+        for (int i = 0; i < pressurePlate.Length; i++)
+        {
+            for (int j = 0; j < 1; j++)
+            {
                 pressurePlateChecker[j] = objectivePlate.objectivePlateActive;
             }
         }
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         for (int i = 0; i < pressurePlateChecker.Length; i++) 
         {
             if (pressurePlateChecker[i] == false)
             {
-                doorState = false;
+                doorStateOn = true;
                 break;
             }
-            doorState = true;
+            doorStateOn = false;
         }
-       
-        Door.SetActive(doorState);
+        Door.SetActive(doorStateOn);
     }
 }

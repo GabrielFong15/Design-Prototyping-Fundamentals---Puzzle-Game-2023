@@ -9,7 +9,7 @@ public class ObjectScaling : MonoBehaviour
 {
 
     public Collider blockPressurePlate;
-    [HideInInspector] public int blockState = 2;
+    [HideInInspector] private int blockState = 2;
 
     // Start is called before the first frame update
     void Start()

@@ -16,16 +16,16 @@ public class ObjectivePlate : MonoBehaviour
         objectivePlateActive = false;
     }
 
-    // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.tag == "Object") 
         {
             if (CubeState.cubeState == objectivePlateState)
             {
                 objectivePlateActive = true;
             }
+            else
+                objectivePlateActive = false;
         }
     }
 }

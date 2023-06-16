@@ -7,47 +7,39 @@ public class HandScanner : MonoBehaviour
 {
     public bool isNormalScanner;
     public bool isSmallScanner;
-    public PlayerScaling playerScaling;
+    public PlayerState PlayerState;
     public GameObject Gate;
     public int playerState;
-
+    public bool isInteract;
     // Start is called before the first frame update
     void Start()
     {
-
+        isInteract = true;
     }
 
     // Update is called once per frame
 
     void Update()
     {
-        playerState = playerScaling.playerState;
-        if (Input.GetKeyDown(KeyCode.E))
+        playerState = PlayerState.playerState;
+
+        if (gameObject.tag == ("Player"))
         {
-            Gate.SetActive(false);
+            if (playerState == 2 && isNormalScanner == true)
+                isInteract = true;
+            else if (playerState == 1 && isSmallScanner == true)
+                isInteract = true;
+            else
+                isInteract = false;
         }
 
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-       BoxCollider bc = other.GetComponent<BoxCollider>();
-       if(other.gameObject.tag == "Player")
+        if(isInteract == true)
+             if (Input.GetKeyDown(KeyCode.E))
         {
-            if (playerScaling.playerState == 2 && isNormalScanner == true)
-            {
-                bc.isTrigger = true;
-            }
-            else
-                bc.isTrigger = false;
-
-            if (playerScaling.playerState == 1 && isSmallScanner == true)
-            {
-                bc.isTrigger = true;
-            }
-            else
-                bc.isTrigger = false;
+             Gate.SetActive(false);
         }
     }
+
+
 
 }
