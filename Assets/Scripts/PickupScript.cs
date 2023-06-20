@@ -8,7 +8,7 @@ public class PickupScript : MonoBehaviour
     [SerializeField] private Camera playerCam;
     [SerializeField] private Transform pickupTarget;
     [SerializeField] private float pickupRange;
-    private Rigidbody CurrentObject;
+    private Rigidbody currentObject;
 
 
     void Start()
@@ -19,30 +19,30 @@ public class PickupScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (CurrentObject == true)
+            if (currentObject == true)
             {
-                CurrentObject.useGravity = true;
-                CurrentObject = null;
+                currentObject.useGravity = true;
+                currentObject = null;
                 return;
             }
 
             Ray CameraRay = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             if (Physics.Raycast(CameraRay, out RaycastHit HitInfo, pickupRange, pickupMask))
             {
-                CurrentObject = HitInfo.rigidbody;
-                CurrentObject.useGravity = false;
+                currentObject = HitInfo.rigidbody;
+                currentObject.useGravity = false;
             }
         }
     }
 
     void FixedUpdate()
     {
-        if (CurrentObject == true)
+        if (currentObject == true)
         {
-            Vector3 DirectionToPoint = pickupTarget.position - CurrentObject.position;
+            Vector3 DirectionToPoint = pickupTarget.position - currentObject.position;
             float DistanceToPoint = DirectionToPoint.magnitude;
 
-            CurrentObject.velocity = DirectionToPoint * 12f * DistanceToPoint;
+            currentObject.velocity = DirectionToPoint * 12f * DistanceToPoint;
         }
     }
 }
