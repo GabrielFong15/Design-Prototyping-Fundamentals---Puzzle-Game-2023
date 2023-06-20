@@ -18,7 +18,7 @@ public class GateOpen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerState.playerState == 2 && isNormalScanner)
+        if(PlayerState.playerState == 2 && isNormalScanner || PlayerState.playerState == 1 && isSmallScanner)
         if (Input.GetKeyDown(KeyCode.E))
             ToggleGate();
     }

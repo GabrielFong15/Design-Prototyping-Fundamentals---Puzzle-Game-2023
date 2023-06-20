@@ -28773,8 +28773,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gate: {fileID: 1290920749}
-  isNormalScanner: 1
-  isSmallScanner: 0
+  isNormalScanner: 0
+  isSmallScanner: 1
   PlayerState: {fileID: 1432382118}
 --- !u!23 &1165046167
 MeshRenderer:
