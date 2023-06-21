@@ -7,7 +7,7 @@ public class GateOpen : MonoBehaviour
     public GameObject Gate;
     public bool isNormalScanner;
     public bool isSmallScanner;
-    [SerializeField] PlayerState PlayerState;
+    [SerializeField] PlayerScaling PlayerScaling;
     private bool isGateOpen = true;
     private bool playerIsOn = false;
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class GateOpen : MonoBehaviour
     void Update()
     {
         if (playerIsOn)
-          if(PlayerState.playerState == 2 && isNormalScanner || PlayerState.playerState == 1 && isSmallScanner)
+          if(PlayerScaling.playerState == 2 && isNormalScanner || PlayerScaling.playerState == 1 && isSmallScanner)
               if (Input.GetKeyDown(KeyCode.E))
                 ToggleGate();
     }
@@ -32,6 +32,7 @@ public class GateOpen : MonoBehaviour
                 isGateOpen = false;
             else
                 isGateOpen = true;
+            //---------------------------
 
             if (isGateOpen == true)
                 Gate.SetActive(false);

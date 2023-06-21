@@ -5,27 +5,37 @@ using UnityEngine;
 public class ObjectivePlate : MonoBehaviour
 {
     public GameObject objectivePressurePlate;
-    public Collider plateCollider;
     public int objectivePlateState;
     [SerializeField] CubeState CubeState;
-    public bool objectivePlateActive;
+    public bool objectivePlateActive = false;
+    public bool plateIsActive = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        objectivePlateActive = false;
+
     }
 
-    void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (other.gameObject.tag == "Object") 
-        {
+        if (objectivePlateActive)
             if (CubeState.cubeState == objectivePlateState)
             {
-                objectivePlateActive = true;
+                plateIsActive = true;
             }
-            else
-                objectivePlateActive = false;
-        }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Object") 
+            objectivePlateActive = true;
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Object")
+            objectivePlateActive = false;
+    }
+
+
 }
