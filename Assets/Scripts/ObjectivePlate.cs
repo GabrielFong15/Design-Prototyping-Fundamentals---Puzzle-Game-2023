@@ -27,7 +27,7 @@ public class ObjectivePlate : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Object") 
+        if (other.gameObject.tag == "Object")
             objectivePlateActive = true;
     }
 

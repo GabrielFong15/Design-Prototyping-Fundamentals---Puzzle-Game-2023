@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GateOpen : MonoBehaviour
 {
-    public GameObject Gate;
+    public GameObject[] Gate;
     public bool isNormalScanner;
     public bool isSmallScanner;
     [SerializeField] PlayerScaling PlayerScaling;
@@ -32,12 +32,12 @@ public class GateOpen : MonoBehaviour
                 isGateOpen = false;
             else
                 isGateOpen = true;
-            //---------------------------
-
+    //------------------------------------------
+        for(int i = 0; i < Gate.Length; i++)
             if (isGateOpen == true)
-                Gate.SetActive(false);
+                Gate[i].SetActive(false);
             else
-                Gate.SetActive(true);
+                Gate[i].SetActive(true);
         
     }
 

@@ -21,6 +21,7 @@ public class PlayerScaling : MonoBehaviour
                 collidedPlayer.transform.localScale = new Vector3(0.45f, 0.45f, 0.45f);
                 FPSMovement FPSMove = collidedPlayer.GetComponent<FPSMovement>();
                 FPSMove.m_jumpHeight = 0.4f;
+                FPSMove.m_movementSpeed = 3f;
                 playerState = 1;
 
             }
@@ -29,6 +30,7 @@ public class PlayerScaling : MonoBehaviour
                 collidedPlayer.transform.localScale = new Vector3(1f, 1f, 1f);
                 FPSMovement FPSMove = collidedPlayer.GetComponent<FPSMovement>();
                 FPSMove.m_jumpHeight = 1.1f;
+                FPSMove.m_movementSpeed = 6f;
                 playerState = 2;
                
             }

@@ -8,45 +8,51 @@ using UnityEngine;
 public class DoorOpen : MonoBehaviour
 {
     public GameObject Door;
-    [SerializeField] ObjectivePlate[] objectivePlate;
-    private bool[] pressurePlateChecker;
+    public GameObject[] pressurePlates;
+    [SerializeField] private bool[] pressurePlateChecker;
     public bool doorStateOn = false;
 
     
     void Start()
     {
+        pressurePlateChecker = new bool[pressurePlates.Length];
 
+        for(int i = 0; i < pressurePlateChecker.Length; i++) {
+            pressurePlateChecker[i] = false;
+        }
     }
 
     void Update()
     {
 
-        /*for (int i = 0; i < pressurePlateChecker.Length; i++) 
+        for(int i = 0; i < pressurePlates.Length; i++)
+        {
+            for(int j = 0; j < pressurePlateChecker.Length; j++)
+            {
+                ObjectivePlate objectPlate = pressurePlates[i].GetComponent<ObjectivePlate>();
+                pressurePlateChecker[j] = objectPlate.plateIsActive;
+                i++;
+            }
+        }
+
+        for (int i = 0; i < pressurePlateChecker.Length; i++)
         {
             if (pressurePlateChecker[i] == false)
-            {
-                doorStateOn = true;
-                break;
-            }
-            doorStateOn = false;
-        }
-        Door.SetActive(doorStateOn);*/
-
-        for(int i = 0; i < objectivePlate.Length; i++)
-        {
-            if (objectivePlate[i] == false)
             {
                 doorStateOn = false;
                 break;
             }
             doorStateOn = true;
         }
+        ToggleDoor();
+    }
 
-        if (doorStateOn == true)
-            Door.SetActive(false);
-        else
-            Door.SetActive(true);
-
+    private void ToggleDoor()
+    {
+     if (doorStateOn == true)
+         Door.SetActive(false);
+     else
+         Door.SetActive(true);
     }
 
 }
