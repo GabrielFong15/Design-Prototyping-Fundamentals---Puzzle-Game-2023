@@ -9,6 +9,7 @@ public class ObjectivePlate : MonoBehaviour
     [SerializeField] CubeState CubeState;
     public bool objectivePlateActive = false;
     public bool plateIsActive = false;
+    public GameObject Door;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,6 @@ public class ObjectivePlate : MonoBehaviour
             Debug.Log("plate is active");
         }
             
-            
     }
 
     public void OnTriggerExit(Collider other)
@@ -43,6 +43,8 @@ public class ObjectivePlate : MonoBehaviour
         if (other.gameObject.tag == "Object")
         {
             objectivePlateActive = false;
+            plateIsActive = false;
+            Door.SetActive(true);
             Debug.Log("plate is de-active");
         }
             
