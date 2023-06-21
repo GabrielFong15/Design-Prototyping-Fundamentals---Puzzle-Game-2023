@@ -11,17 +11,6 @@ public class ObjectScaling : MonoBehaviour
     public Collider blockPressurePlate;
     [HideInInspector] private int blockState = 2;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     //When a block lands on a pressure plate, toggle its size
     void OnTriggerEnter(Collider collidedObject)

@@ -14,7 +14,7 @@ public class DoorOpen : MonoBehaviour
 
     
     void Start()
-    {
+    {  // Populate a new array based of the length of pressurePlates array
         pressurePlateChecker = new bool[pressurePlates.Length];
 
         for(int i = 0; i < pressurePlateChecker.Length; i++) {
@@ -23,18 +23,19 @@ public class DoorOpen : MonoBehaviour
     }
 
     void Update()
-    {
-
+    {   // Assigning bool values into the pressurePlateChecker from the pressurePlate array
         for(int i = 0; i < pressurePlates.Length; i++)
         {
             for(int j = 0; j < pressurePlateChecker.Length; j++)
             {
+                // Grab bool values from ObjectivePlate script and assigning its values
                 ObjectivePlate objectPlate = pressurePlates[i].GetComponent<ObjectivePlate>();
                 pressurePlateChecker[j] = objectPlate.plateIsActive;
                 i++;
             }
         }
 
+        // Checks if all the array has true values
         for (int i = 0; i < pressurePlateChecker.Length; i++)
         {
             if (pressurePlateChecker[i] == false)
@@ -47,7 +48,7 @@ public class DoorOpen : MonoBehaviour
         }
         ToggleDoor();
     }
-
+    // Enable/Disable the door
     private void ToggleDoor()
     {
      if (doorStateOn == true)

@@ -11,14 +11,11 @@ public class ObjectivePlate : MonoBehaviour
     public bool plateIsActive = false;
     public GameObject Door;
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
 
     void Update()
     {
+        // Check if the block fits the requirement of the objective pressure plate
         if (objectivePlateActive)
             if (CubeState.cubeState == objectivePlateState)
             {

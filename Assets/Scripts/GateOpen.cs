@@ -10,17 +10,12 @@ public class GateOpen : MonoBehaviour
     [SerializeField] PlayerScaling PlayerScaling;
     private bool isGateOpen = true;
     private bool playerIsOn = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+
     void Update()
-    {
+    {   // Check if the player has accessed to enable/disable gates
         if (playerIsOn)
-          if(PlayerScaling.playerState == 2 && isNormalScanner || PlayerScaling.playerState == 1 && isSmallScanner)
+          if(PlayerScaling.playerState == 2 && isNormalScanner || PlayerScaling.playerState == 1 && isSmallScanner) // Grab player state from a different script and check.
               if (Input.GetKeyDown(KeyCode.E))
                 ToggleGate();
     }
@@ -32,7 +27,8 @@ public class GateOpen : MonoBehaviour
                 isGateOpen = false;
             else
                 isGateOpen = true;
-    //------------------------------------------
+        
+        // For all gates in the array, turn off/on the gates.
         for(int i = 0; i < Gate.Length; i++)
             if (isGateOpen == true)
                 Gate[i].SetActive(false);

@@ -11,18 +11,6 @@ public class CubeState : MonoBehaviour
     public int cubeState = 2;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnTriggerEnter(Collider collidedObject)
     {
         if (collidedObject.gameObject.tag == "BlockPressurePlate")

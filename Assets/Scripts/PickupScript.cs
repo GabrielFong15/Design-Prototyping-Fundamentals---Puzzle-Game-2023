@@ -10,11 +10,6 @@ public class PickupScript : MonoBehaviour
     [SerializeField] private float pickupRange;
     private Rigidbody currentObject;
 
-
-    void Start()
-    {
-
-    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
