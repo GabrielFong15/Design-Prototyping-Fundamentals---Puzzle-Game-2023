@@ -22,6 +22,7 @@ public class PlayerScaling : MonoBehaviour
                 FPSMovement FPSMove = collidedPlayer.GetComponent<FPSMovement>();
                 FPSMove.m_jumpHeight = 0.4f;
                 FPSMove.m_movementSpeed = 3f;
+                FPSMove.m_gravity = -15f;
                 playerState = 1;
 
             }
@@ -31,6 +32,7 @@ public class PlayerScaling : MonoBehaviour
                 FPSMovement FPSMove = collidedPlayer.GetComponent<FPSMovement>();
                 FPSMove.m_jumpHeight = 1.1f;
                 FPSMove.m_movementSpeed = 6f;
+                FPSMove.m_gravity = -35f;
                 playerState = 2;
                
             }

@@ -23,18 +23,29 @@ public class ObjectivePlate : MonoBehaviour
             {
                 plateIsActive = true;
             }
+             else
+                plateIsActive = false;
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Object")
+        {
             objectivePlateActive = true;
+            Debug.Log("plate is active");
+        }
+            
+            
     }
 
     public void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Object")
+        {
             objectivePlateActive = false;
+            Debug.Log("plate is de-active");
+        }
+            
     }
 
 

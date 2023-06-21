@@ -40,6 +40,7 @@ public class DoorOpen : MonoBehaviour
             if (pressurePlateChecker[i] == false)
             {
                 doorStateOn = false;
+                ToggleDoor();
                 break;
             }
             doorStateOn = true;
