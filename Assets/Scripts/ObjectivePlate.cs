@@ -1,3 +1,4 @@
+using Palmmedia.ReportGenerator.Core.Parser.Filtering;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,15 @@ using UnityEngine;
 public class ObjectivePlate : MonoBehaviour
 {
     public GameObject objectivePressurePlate;
+    public GameObject objectivePlateVisual;
     public int objectivePlateState;
     [SerializeField] CubeState CubeState;
     public bool objectivePlateActive = false;
     public bool plateIsActive = false;
     public GameObject Door;
+    public Material emmisiveMat;
+    public Material defaultMat;
+
 
 
 
@@ -20,6 +25,7 @@ public class ObjectivePlate : MonoBehaviour
             if (CubeState.cubeState == objectivePlateState)
             {
                 plateIsActive = true;
+                objectivePlateVisual.GetComponent<Renderer>().material = emmisiveMat;
             }
              else
                 plateIsActive = false;
@@ -32,7 +38,6 @@ public class ObjectivePlate : MonoBehaviour
             objectivePlateActive = true;
             Debug.Log("plate is active");
         }
-            
     }
 
     public void OnTriggerExit(Collider other)
@@ -42,6 +47,7 @@ public class ObjectivePlate : MonoBehaviour
             objectivePlateActive = false;
             plateIsActive = false;
             Door.SetActive(true);
+            objectivePlateVisual.GetComponent<Renderer>().material = defaultMat;
             Debug.Log("plate is de-active");
         }
             
