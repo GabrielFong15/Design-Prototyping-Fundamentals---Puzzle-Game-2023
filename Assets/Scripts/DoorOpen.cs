@@ -38,7 +38,7 @@ public class DoorOpen : MonoBehaviour
         // Checks if all the array has true values
         for (int i = 0; i < pressurePlateChecker.Length; i++)
         {
-            if (pressurePlateChecker[i] == false)
+            if (pressurePlateChecker[i] == false)  // If any point a pressure plate is not active, do not open door.
             {
                 doorStateOn = false;
                 ToggleDoor();
@@ -48,6 +48,7 @@ public class DoorOpen : MonoBehaviour
         }
         ToggleDoor();
     }
+
     // Enable/Disable the door
     private void ToggleDoor()
     {
