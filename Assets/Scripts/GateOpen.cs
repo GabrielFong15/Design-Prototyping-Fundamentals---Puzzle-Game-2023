@@ -23,17 +23,16 @@ public class GateOpen : MonoBehaviour
     private void ToggleGate() 
     {
 
-            if (isGateOpen == true)
-                isGateOpen = false;
-            else
-                isGateOpen = true;
-        
+        isGateOpen = !isGateOpen;
+
         // For all gates in the array, turn off/on the gates.
-        for(int i = 0; i < Gate.Length; i++)
+        for (int i = 0; i < Gate.Length; i++)
+        {
             if (isGateOpen == true)
                 Gate[i].SetActive(false);
             else
                 Gate[i].SetActive(true);
+        }
         
     }
 

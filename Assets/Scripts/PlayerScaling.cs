@@ -11,7 +11,10 @@ public class PlayerScaling : MonoBehaviour
     public int playerState = 2;
     public FPSMovement FPSMovement;
 
-
+    void Update()
+    {
+        
+    }
 
     void OnTriggerEnter(Collider collidedPlayer)
     {
@@ -27,6 +30,7 @@ public class PlayerScaling : MonoBehaviour
                 playerState = 1;
                 pickupPoint.transform.localPosition = new Vector3(0f, 0.65f, 3f);
             }
+
             else
             {
                 collidedPlayer.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -36,9 +40,16 @@ public class PlayerScaling : MonoBehaviour
                 FPSMove.m_gravity = -35f;
                 pickupPoint.transform.localPosition = new Vector3(0f, 0.65f, 2f);
                 playerState = 2;
-               
             }
         }
         
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
+
+
+
 }

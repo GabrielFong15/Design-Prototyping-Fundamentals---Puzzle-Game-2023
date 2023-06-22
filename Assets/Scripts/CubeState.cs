@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class CubeState : MonoBehaviour
 {
-    [SerializeField] ObjectScaling objectScaling;
-
-    [SerializeField]
     public int cubeState = 2;
 
 
