@@ -5,19 +5,8 @@ using UnityEngine;
 public class RBDisable : MonoBehaviour
 {
     public Collider Player;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Prevent a block from moving when in contact of the player
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Object" || other.gameObject.tag == "ObjectProp")

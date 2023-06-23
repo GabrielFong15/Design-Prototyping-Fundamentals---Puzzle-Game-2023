@@ -17,7 +17,8 @@ public class DoorOpen : MonoBehaviour
     {  // Populate a new array based of the length of pressurePlates array
         pressurePlateChecker = new bool[pressurePlates.Length];
 
-        for(int i = 0; i < pressurePlateChecker.Length; i++) {
+        for(int i = 0; i < pressurePlateChecker.Length; i++)
+        {
             pressurePlateChecker[i] = false;
         }
     }

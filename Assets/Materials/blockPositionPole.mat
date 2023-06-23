@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: windowTint
+  m_Name: blockPositionPole
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _ALPHAPREMULTIPLY_ON
@@ -77,6 +77,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.3499911, g: 0.49608096, b: 0.6132076, a: 0.48235294}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0.74509805}
+    - _EmissionColor: {r: 0.58708614, g: 0.745283, b: 0.73278785, a: 1}
   m_BuildTextureStacks: []

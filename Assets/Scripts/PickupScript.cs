@@ -8,6 +8,9 @@ public class PickupScript : MonoBehaviour
     [SerializeField] private Camera playerCam;
     [SerializeField] private Transform pickupTarget;
     [SerializeField] private float pickupRange;
+    public Material emissiveMat;
+    public Material objectiveBlockMat;
+    public Material objectPropMat;
     private Rigidbody currentObject;
 
 
@@ -39,7 +42,7 @@ public class PickupScript : MonoBehaviour
             Vector3 DirectionToPoint = pickupTarget.position - currentObject.position;
             float DistanceToPoint = DirectionToPoint.magnitude;
 
-            currentObject.velocity = DirectionToPoint * 12f * DistanceToPoint;
+            currentObject.velocity = DirectionToPoint * 16f * DistanceToPoint;
         }
     }
 }

@@ -14,13 +14,10 @@ public class CubeState : MonoBehaviour
         {
 
             if (cubeState == 2)
-            {
                 cubeState = 1;
-            }
             else
-            {
                 cubeState = 2;
-            }
+
         }
     }
 
