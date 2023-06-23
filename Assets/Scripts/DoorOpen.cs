@@ -24,7 +24,7 @@ public class DoorOpen : MonoBehaviour
 
     void Update()
     {   // Assigning bool values into the pressurePlateChecker from the pressurePlate array
-        for(int i = 0; i < pressurePlates.Length; i++)
+        for(int i = 0; i < pressurePlates.Length;)
         {
             for(int j = 0; j < pressurePlateChecker.Length; j++)
             {

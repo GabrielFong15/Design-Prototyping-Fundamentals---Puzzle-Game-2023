@@ -5,11 +5,14 @@ using UnityEngine;
 public class GateOpen : MonoBehaviour
 {
     public GameObject[] Gate;
+    public GameObject handScanner;
     public bool isNormalScanner;
     public bool isSmallScanner;
     [SerializeField] PlayerScaling PlayerScaling;
     private bool isGateOpen = true;
     private bool playerIsOn = false;
+    public Material scannerOffMat;
+    public Material scannerOnMat;
 
 
     void Update()
@@ -29,9 +32,15 @@ public class GateOpen : MonoBehaviour
         for (int i = 0; i < Gate.Length; i++)
         {
             if (isGateOpen == true)
+            {
                 Gate[i].SetActive(false);
+                handScanner.GetComponent<Renderer>().material = scannerOnMat;
+            }
             else
+            {
                 Gate[i].SetActive(true);
+                handScanner.GetComponent<Renderer>().material = scannerOffMat;
+            }
         }
         
     }

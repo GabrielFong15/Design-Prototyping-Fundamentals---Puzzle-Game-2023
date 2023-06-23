@@ -15,7 +15,7 @@ public class ObjectScaling : MonoBehaviour
     //When a block lands on a pressure plate, toggle its size
     void OnTriggerEnter(Collider collidedObject)
     {
-        if (collidedObject.gameObject.tag == "Object")
+        if (collidedObject.gameObject.tag == "Object" || collidedObject.gameObject.tag == "ObjectProp")
         {
 
             if (blockState == 2)

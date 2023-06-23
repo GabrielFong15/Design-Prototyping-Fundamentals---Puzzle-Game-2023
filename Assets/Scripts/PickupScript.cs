@@ -10,6 +10,7 @@ public class PickupScript : MonoBehaviour
     [SerializeField] private float pickupRange;
     private Rigidbody currentObject;
 
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -27,6 +28,7 @@ public class PickupScript : MonoBehaviour
                 currentObject = HitInfo.rigidbody;
                 currentObject.useGravity = false;
             }
+
         }
     }
 
