@@ -8,6 +8,7 @@ public class PickupScript : MonoBehaviour
     [SerializeField] private Camera playerCam;
     [SerializeField] private Transform pickupTarget;
     [SerializeField] private float pickupRange;
+
     public Material emissiveMat;
     public Material objectiveBlockMat;
     public Material objectPropMat;
@@ -31,7 +32,6 @@ public class PickupScript : MonoBehaviour
                 currentObject = HitInfo.rigidbody;
                 currentObject.useGravity = false;
             }
-
         }
     }
 

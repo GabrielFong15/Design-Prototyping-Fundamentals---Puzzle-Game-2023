@@ -7,18 +7,14 @@ public class CubeState : MonoBehaviour
 {
     public int cubeState = 2;
 
-
     void OnTriggerEnter(Collider collidedObject)
     {
         if (collidedObject.gameObject.tag == "BlockPressurePlate")
         {
-
             if (cubeState == 2)
                 cubeState = 1;
             else
                 cubeState = 2;
-
         }
     }
-
 }

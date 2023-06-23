@@ -11,10 +11,6 @@ public class PlayerScaling : MonoBehaviour
     public int playerState = 2;
     public FPSMovement FPSMovement;
 
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider collidedPlayer)
     {
@@ -42,14 +38,12 @@ public class PlayerScaling : MonoBehaviour
                 playerState = 2;
             }
         }
-        
     }
 
     private void OnTriggerStay(Collider other)
     {
         
     }
-
 
 
 }

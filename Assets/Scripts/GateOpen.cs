@@ -8,9 +8,9 @@ public class GateOpen : MonoBehaviour
     public GameObject handScanner;
     public bool isNormalScanner;
     public bool isSmallScanner;
-    [SerializeField] PlayerScaling PlayerScaling;
     private bool isGateOpen = true;
     private bool playerIsOn = false;
+    [SerializeField] PlayerScaling PlayerScaling;
     public Material scannerOffMat;
     public Material scannerOnMat;
 
@@ -25,7 +25,6 @@ public class GateOpen : MonoBehaviour
 
     private void ToggleGate() 
     {
-
         isGateOpen = !isGateOpen;
 
         // For all gates in the array, turn off/on the gates.
